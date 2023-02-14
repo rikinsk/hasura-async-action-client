@@ -8,7 +8,7 @@ export type ASYNC_ACTION = {
 
 export type ASYNC_ACTIONS = {[key: string]: ASYNC_ACTION};
 
-class AsyncHandlerClient {
+class AsyncActionClient {
   asyncActions: ASYNC_ACTIONS;
   graphQLClient: GraphQLClient;
   subscriptionClient: SubscriptionClient;
@@ -69,5 +69,5 @@ subscription asyncActionResponse {
   }
 }
 
-export default AsyncHandlerClient;
+export default AsyncActionClient;
 

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import "./App.css";
-import AsyncHandlerClient from "./AsyncActionClient";
+import AsyncActionClient from "./AsyncActionClient";
 import {APP_ASYNC_ACTIONS} from "./AsyncActions";
 import {HASURA_ADMIN_SECRET, HASURA_ENDPOINT} from "./HasuraConfig";
 
@@ -8,7 +8,7 @@ function App() {
   const [sleepTime, setSleepTime] = useState(5);
   const [sleepResponse, setSleepResponse] = useState("No request made");
 
-  const asyncHandler = new AsyncHandlerClient(HASURA_ENDPOINT, HASURA_ADMIN_SECRET, APP_ASYNC_ACTIONS)
+  const asyncHandler = new AsyncActionClient(HASURA_ENDPOINT, HASURA_ADMIN_SECRET, APP_ASYNC_ACTIONS)
 
   const triggerSleep = () => {
     asyncHandler.callAsyncAction(setSleepResponse, "sleepyAction", { sleep: sleepTime });
