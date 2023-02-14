@@ -6,14 +6,18 @@ export type ASYNC_ACTION = {
   outputFields: string[];
 };
 
-export type ASYNC_ACTIONS = {[key: string]: ASYNC_ACTION};
+export type ASYNC_ACTIONS = { [key: string]: ASYNC_ACTION };
 
 class AsyncActionClient {
   asyncActions: ASYNC_ACTIONS;
   graphQLClient: GraphQLClient;
   subscriptionClient: SubscriptionClient;
 
-  constructor(hasuraEndpoint: string, hasuraAdminSecret: string, actions: ASYNC_ACTIONS, ) {
+  constructor(
+    hasuraEndpoint: string,
+    hasuraAdminSecret: string,
+    actions: ASYNC_ACTIONS
+  ) {
     this.asyncActions = actions;
 
     this.graphQLClient = new GraphQLClient(`http://${hasuraEndpoint}`, {
@@ -33,9 +37,9 @@ class AsyncActionClient {
   }
 
   callAsyncAction(
-    callback: (a: string) => void,
     actionName: string,
-    variables: { [key: string]: any } = {}
+    variables: { [key: string]: any } = {},
+    callback: (a: string) => void
   ): void {
     const asyncAction = this.asyncActions[actionName];
 
@@ -44,7 +48,7 @@ subscription asyncActionResponse {
   ${actionName}(id: "${id}") {
     errors
     output {
-      ${asyncAction.outputFields.join(' ')}
+      ${asyncAction.outputFields.join(" ")}
     }
   }
 }  
@@ -70,4 +74,3 @@ subscription asyncActionResponse {
 }
 
 export default AsyncActionClient;
-

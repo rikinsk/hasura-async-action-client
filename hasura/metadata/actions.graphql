@@ -1,11 +1,8 @@
 type Mutation {
-  sleepyAction(
-    sleep: Int!
-  ): SleepResponse
+  sleepyAction(sleep: Int!): SleepResponse
 }
 
 type SleepResponse {
   status: String!
   msg: String!
 }
-

@@ -3,7 +3,6 @@
 Client accepts list of available actions, action name and variables and calls a callback when the async action
 completes.
 
-
 ### Local Dev
 
 #### Hasura

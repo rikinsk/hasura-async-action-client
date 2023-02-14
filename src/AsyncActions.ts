@@ -8,6 +8,6 @@ export const APP_ASYNC_ACTIONS: ASYNC_ACTIONS = {
         sleepyAction(sleep: $sleep)
       }
     `,
-    outputFields: ['msg', 'status'],
+    outputFields: ["msg", "status"],
   },
 };
