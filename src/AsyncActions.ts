@@ -1,13 +1,11 @@
 import { gql } from "graphql-request";
-import { ASYNC_ACTIONS } from "./AsyncActionClient";
+
+type ASYNC_ACTIONS = { [key: string]: string };
 
 export const APP_ASYNC_ACTIONS: ASYNC_ACTIONS = {
-  sleepyAction: {
-    request: gql`
-      mutation sleepAction($sleep: Int!) {
-        sleepyAction(sleep: $sleep)
-      }
-    `,
-    outputFields: ["msg", "status"],
-  },
+  sleepyAction: gql`
+    mutation sleepAction($sleep: Int!) {
+      sleepyAction(sleep: $sleep)
+    }
+  `,
 };

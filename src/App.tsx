@@ -10,17 +10,18 @@ function App() {
 
   const asyncHandler = new AsyncActionClient(
     HASURA_ENDPOINT,
-    HASURA_ADMIN_SECRET,
-    APP_ASYNC_ACTIONS
+    HASURA_ADMIN_SECRET
   );
 
   const triggerSleep = () => {
     asyncHandler.callAsyncAction(
       "sleepyAction",
+      APP_ASYNC_ACTIONS["sleepyAction"],
       { sleep: sleepTime },
+      ["status", "msg"],
       setSleepResponse
     );
-    setSleepResponse("Requesting...");
+    setSleepResponse("Waiting...");
   };
 
   const handleSleepTimeChange = (e: ChangeEvent<HTMLInputElement>) => {
