@@ -1,0 +1,11 @@
+actions:
+  - name: sleepyAction
+    definition:
+      kind: asynchronous
+      handler: https://light-periwinkle-yew.glitch.me/sleepyAction
+custom_types:
+  enums: []
+  input_objects: []
+  objects:
+    - name: SleepResponse
+  scalars: []
