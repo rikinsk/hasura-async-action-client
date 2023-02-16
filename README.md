@@ -47,6 +47,10 @@ asyncHandler.callAsyncAction(
 
 Deploy hasura from `hasura` directory
 
+#### Action handler
+
+Run `actionHandler.js`
+
 #### App
 
 In the project directory, you can run:
