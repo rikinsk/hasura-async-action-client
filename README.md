@@ -7,6 +7,40 @@ Hasura async actions return an action id immediately and the actual result of th
 Hasura Async Action Client accepts an action request, action name and request variables and calls a callback when the async action
 completes.
 
+## Usage
+
+```js
+const asyncHandler = new AsyncActionClient(
+  HASURA_ENDPOINT,
+  HASURA_ADMIN_SECRET
+);
+
+  asyncHandler.callAsyncAction(
+    "<action_name>",
+    gql`
+      <action_request>
+    `,
+    {"<variables>"},
+    ["<response_field_array>"],
+    successCallbackFn
+  );
+```
+
+For example:
+```JS
+asyncHandler.callAsyncAction(
+  "sleepAction",
+  gql`
+    mutation sleepAction($sleep: Int!) {
+      sleepyAction(sleep: $sleep)
+    }
+  `,
+  { sleep: sleepTime },
+  ["status", "msg"],
+  successCallbackFn
+);
+```
+
 ### Local Dev
 
 #### Hasura
