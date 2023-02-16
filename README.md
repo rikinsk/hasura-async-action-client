@@ -4,7 +4,7 @@ Simple JS client for running [Hasura async actions](https://hasura.io/docs/lates
 
 Hasura async actions return an action id immediately and the actual result of the action can be fetched via a subscription to that id.
 
-Hasura Async Action Client accepts an action request, action name and request variables and calls a callback when the async action
+Hasura Async Action Client accepts an action name, action request and request variables and calls a callback when the async action
 completes.
 
 ## Usage
